@@ -21,3 +21,31 @@ function toggleTheme() {
 function scrollToProfile() {
     window.location.href = "profile.html";
 }
+// JavaScript to animate the skill bars when they enter the viewport
+function animateSkills() {
+    const skills = document.querySelectorAll('.skill');
+    skills.forEach(skill => {
+        const skillValue = skill.getAttribute('data-skill');
+        skill.style.width = skillValue + '%'; // Set width based on data attribute
+    });
+}
+
+// Check if the element is in the viewport
+function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+// Event listener for scrolling to animate skills
+window.addEventListener('scroll', function () {
+    const skillsSection = document.querySelector('.skills');
+    if (isElementInViewport(skillsSection)) {
+        animateSkills();
+    }
+});
+

@@ -257,3 +257,100 @@ footer.dark-mode {
 .nav ul li a.dark-mode {
     color: #f4f4f4;
 }
+
+.skills {
+    padding: 50px;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+.skill-bar {
+    background-color: #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.skill {
+    display: block;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+    white-space: nowrap;
+    width: 0;
+    /* Start at 0 width for animation */
+    transition: width 2s ease;
+    /* Smooth transition for the width */
+}
+
+.skill[data-skill]:before {
+    content: attr(data-skill) '%';
+    float: right;
+    margin-right: 10px;
+}
+/* Navigation Styles */
+nav {
+    background-color: #ffffff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #1abc9c;
+}
+
+/* Dark Mode Button Styles */
+#theme-toggle {
+    padding: 8px 16px;
+    background-color: #1abc9c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#theme-toggle:hover {
+    background-color: #16a085;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #333;
+    color: #f4f4f4;
+}
+
+header.dark-mode, footer.dark-mode {
+    background-color: #222;
+}
+
+nav.dark-mode ul li a {
+    color: #f4f4f4;
+}
+
+#theme-toggle.dark-mode {
+    background-color: #f4f4f4;
+    color: #333;
+}
