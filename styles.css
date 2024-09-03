@@ -1,3 +1,4 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -21,13 +22,44 @@ nav ul {
 nav ul li {
     display: inline;
     margin-right: 20px;
+    position: relative;
+    /* Needed for the underline effect */
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
+    padding: 5px 0;
+    position: relative;
+    /* Needed for pseudo-element */
+    transition: color 0.3s ease;
+    /* Smooth color transition */
 }
 
+/* Super Cool Hover Effect */
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: #1abc9c;
+    transition: width 0.3s ease, left 0.3s ease;
+    /* Smooth width and position transition */
+}
+
+nav ul li a:hover::before {
+    width: 100%;
+    left: 0;
+}
+
+nav ul li a:hover {
+    color: #1abc9c;
+    /* Change text color on hover */
+}
+
+/* Other Styles */
 .hero {
     text-align: center;
     padding: 100px 0;
@@ -41,13 +73,16 @@ button {
     border: none;
     padding: 10px 20px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    /* Smooth background color transition */
 }
 
 button:hover {
     background-color: #555;
 }
 
-.profile, .contact {
+.profile,
+.contact {
     padding: 50px;
     text-align: center;
 }
@@ -62,7 +97,8 @@ form label {
     margin: 10px 0 5px;
 }
 
-form input, form textarea {
+form input,
+form textarea {
     padding: 10px;
     width: 300px;
     margin-bottom: 10px;
@@ -76,4 +112,148 @@ footer {
     position: fixed;
     width: 100%;
     bottom: 0;
+}
+
+.hero {
+    text-align: center;
+    padding: 100px 0;
+    background-color: #1abc9c;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    /* To hide content initially */
+}
+
+.hero-content {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease forwards;
+    /* Animation for fade-in effect */
+    animation-delay: 0.5s;
+    /* Delay to make it smoother */
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.portfolio {
+    padding: 50px;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+.portfolio-gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.portfolio-item {
+    position: relative;
+    width: 300px;
+    overflow: hidden;
+}
+
+.portfolio-item img {
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.1);
+}
+
+.portfolio-info {
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-info {
+    opacity: 1;
+}
+
+.skills {
+    padding: 50px;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+.skill-bar {
+    background-color: #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.skill {
+    display: block;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+    white-space: nowrap;
+    animation: grow 2s ease;
+    /* Animation for skill bar */
+}
+
+@keyframes grow {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+        /* Width will be overridden by inline style */
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .portfolio-gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .skill-bar {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
+/* Default Light Theme */
+body {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Dark Theme */
+body.dark-mode {
+    background-color: #333;
+    color: #f4f4f4;
+}
+
+header.dark-mode,
+footer.dark-mode {
+    background-color: #222;
+}
+
+.nav ul li a.dark-mode {
+    color: #f4f4f4;
 }

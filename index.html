@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <title>My Portfolio</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <header>
         <nav>
@@ -17,7 +19,7 @@
             </ul>
         </nav>
     </header>
-    
+
     <main>
         <section class="hero">
             <h1>Welcome to My Portfolio</h1>
@@ -25,6 +27,15 @@
             <button onclick="scrollToProfile()">Learn More</button>
         </section>
     </main>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Discover my work and experience.</p>
+            <button onclick="scrollToProfile()">Learn More</button>
+        </div>
+    </section>
+    <button id="theme-toggle" onclick="toggleTheme()">Toggle Dark/Light Mode</button>
+
 
     <footer>
         <p>&copy; 2024 My Portfolio. All rights reserved.</p>
@@ -32,4 +43,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
